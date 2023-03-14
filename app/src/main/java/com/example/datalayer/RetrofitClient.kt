@@ -2,6 +2,7 @@ package com.example.datalayer
 
 import com.example.utils.Constants
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 /**
  * @Author: Archana Kumari
@@ -11,7 +12,7 @@ class RetrofitClient private constructor() {
     lateinit var retrofit: Retrofit;
 
     init {
-        retrofit = Retrofit.Builder().baseUrl(Constants.BASE_URL).build();
+        retrofit = Retrofit.Builder().baseUrl(Constants.BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
     }
 
     companion object {
